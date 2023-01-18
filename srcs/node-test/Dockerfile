@@ -2,9 +2,11 @@ FROM node:19-alpine
 
 WORKDIR /app
 
-COPY ./srcs .
+COPY /srcs/package.json .
 
 RUN npm install
+
+COPY ./srcs .
 
 EXPOSE 4000
 

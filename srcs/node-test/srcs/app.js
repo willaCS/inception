@@ -7,7 +7,7 @@ app.use(cors())
 
 app.get('/', (req, res) => {
 	console.log("Request received :D")
-	res.json("LOL")
+	res.json("LMAO")
 })
 
 app.listen(4000, () => {
