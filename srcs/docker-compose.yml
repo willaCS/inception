@@ -4,7 +4,6 @@ services:
     build: ./node-test
     container_name: api_c
     ports:
-      - '4000:4000'
+      - '6969:4000'
     # volumes:
     #   - relPath:relPath
-    
