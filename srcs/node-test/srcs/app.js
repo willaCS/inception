@@ -6,21 +6,8 @@ const app = express()
 app.use(cors())
 
 app.get('/', (req, res) => {
-  console.log("Requeset received :D")
-  res.json([
-    {
-      "id":"1",
-      "title":"Book Review: The Bear & The Nightingale"
-    },
-    {
-      "id":"2",
-      "title":"Game Review: Pokemon Brillian Diamond"
-    },
-    {
-      "id":"3",
-      "title":"Show Review: Alice in Borderland"
-    }
-  ])
+  console.log("Request received :D")
+  res.json("LOL")
 })
 
 app.listen(4000, () => {
