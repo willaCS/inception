@@ -9,3 +9,6 @@ services:
     #   - relPath:relPath
     env_file:
       - .env
+    networks:
+      - network
+    restart: always
