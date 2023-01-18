@@ -6,6 +6,7 @@ const app = express()
 app.use(cors())
 
 app.get('/', (req, res) => {
+  console.log("Requeset received :D")
   res.json([
     {
       "id":"1",
