@@ -7,3 +7,5 @@ services:
       - '6969:4000'
     # volumes:
     #   - relPath:relPath
+    env_file:
+      - .env
