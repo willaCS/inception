@@ -1,14 +1,12 @@
-version: '2.15.1'
+version: '3'
 services:
-  api:
-    build: ./requirements/node-test
-    container_name: api_c
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx-container
     ports:
-      - '6969:4000'
-    # volumes:
-    #   - relPath:relPath
-    env_file:
-      - .env
-    networks:
-      - network
+      - '8000:80'
+    # env_file:
+    #   - .env
+    # networks:
+    #   - network
     restart: always
