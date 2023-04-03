@@ -1,12 +1,17 @@
 version: '3'
+
+# Define all networks
+networks:
+  network1: # example network definition
+
 services:
   nginx:
     build: ./requirements/nginx
-    container_name: nginx-container
+    container_name: nginx-container1
     ports:
       - '8000:80'
     # env_file:
     #   - .env
-    # networks:
-    #   - network
+    networks:
+      - network1 # example network use
     restart: always
