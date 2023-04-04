@@ -1,8 +1,8 @@
 build:
-	cd ./srcs; docker-compose up --detach
+	sudo docker-compose -f srcs/docker-compose.yml up --detach
 
 stop:
-	cd ./srcs; docker-compose down
+	sudo docker-compose -f srcs/docker-compose.yml down
 
 delete:
-	cd ./srcs; docker-compose rm
+	sudo docker-compose -f srcs/docker-compose.yml rm

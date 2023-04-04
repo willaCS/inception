@@ -7,9 +7,20 @@ networks:
 services:
   nginx:
     build: ./requirements/nginx
-    container_name: nginx-container1
+    container_name: nginx
     ports:
       - '8000:80'
+    # env_file:
+    #   - .env
+    networks:
+      - network1 # example network use
+    restart: always
+  
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    # ports:
+    #   - '8000:80'
     # env_file:
     #   - .env
     networks:
