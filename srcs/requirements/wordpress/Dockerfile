@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y wget less \
     php-mbstring \
     php-curl \
     php-zip \
+	mariadb-server \
+	mariadb-client \
     && rm -rf /var/lib/apt/lists/*
 
 # Install wordpress cli
@@ -18,7 +20,7 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 	&& mv wp-cli.phar /bin/wp
 
 # Add config
-COPY conf/php-fpm.conf /etc/php/7.4/fpm/
+COPY tools/php-fpm.conf /etc/php/7.4/fpm/
 
 # Add group
 RUN groupadd wordpress \
@@ -32,5 +34,16 @@ RUN mkdir -p /usr/logs/php-fpm/ && \
 RUN mkdir /app
 WORKDIR /app
 
+RUN wget https://wordpress.org/wordpress-6.3.tar.gz && \
+	tar -zxvf wordpress-6.3.tar.gz && \
+	mv wordpress/* . && \
+	rm -rf wordpress wordpress-6.3.tar.gz && \
+	chown -R wordpress:wordpress /app && \
+	chmod -R 755 /app
+
+COPY tools/start.sh /app/start.sh
+
+RUN chmod 707 /app/start.sh
+
 USER wordpress:wordpress
-CMD ["php-fpm7.4", "-F"]
+CMD ["/app/start.sh"]
