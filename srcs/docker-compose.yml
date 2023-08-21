@@ -1,8 +1,14 @@
 version: '3'
 services:
-  nginx:
-    container_name: "inception_nginx"
+  # nginx:
+  #   container_name: "inception_nginx"
+  #   build:
+  #     context: ./requirements/nginx
+  #   ports:
+  #     - "8080:80"
+  wordpress:
+    container_name: "inception_wordpress"
     build:
-      context: ./requirements/nginx
+      context: ./requirements/wordpress
     ports:
       - "8080:80"
