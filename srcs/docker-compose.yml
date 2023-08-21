@@ -1,6 +1,7 @@
 version: '3'
 services:
   nginx:
+    container_name: "inception_nginx"
     build:
       context: ./requirements/nginx
     ports:
