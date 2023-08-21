@@ -1,29 +1,21 @@
-FROM debian:bullseye
+# Use the Debian base image
+FROM debian:latest
 
-RUN apt-get update -y && apt-get install -y \
-	wget \
-	php7.4-fpm \
-	php7.4 \
-	php7.4-mysql \
-	php7.4-fpm \
-	php7.4-curl \
-	php7.4-gd \
-	php7.4-intl \
-	php7.4-mbstring \
-	php7.4-soap \
-	php7.4-xml \
-	php7.4-xmlrpc \
-	php7.4-zip \
-	mariadb-server \
-	mariadb-client \
-	&& rm -rf /var/lib/apt/lists/*
+# Install PHP-FPM and other dependencies
+RUN apt-get update && apt-get install -y \
+    php-fpm \
+    php-mysql \
+    php-gd \
+    php-xml \
+    php-mbstring \
+    php-curl \
+    php-zip \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /app
-WORKDIR /app
+RUN mkdir /run/php
 
-RUN groupadd wordpress \
-	&& useradd -g wordpress wordpress
+# Set the working directory
+WORKDIR /var/www/html
 
-EXPOSE 9000
-
-# CMD [""]
+# Start PHP-FPM
+CMD ["php-fpm7.4", "-F"]
