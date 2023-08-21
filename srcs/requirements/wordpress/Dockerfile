@@ -24,7 +24,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Create Group wordpress
-RUN groupadd wordpress
+RUN groupadd wordpress \
 	&& useradd -g wordpress wordpress
 
 # Expose port 9000 for PHP-FPM
