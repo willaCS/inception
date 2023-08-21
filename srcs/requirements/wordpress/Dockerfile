@@ -1,6 +1,5 @@
 FROM debian:bullseye
 
-# Install PHP-FPM and other dependencies
 RUN apt-get update -y && apt-get install -y \
 	wget \
 	php7.4-fpm \
@@ -19,16 +18,12 @@ RUN apt-get update -y && apt-get install -y \
 	mariadb-client \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Create app folder
 RUN mkdir /app
 WORKDIR /app
 
-# Create Group wordpress
 RUN groupadd wordpress \
 	&& useradd -g wordpress wordpress
 
-# Expose port 9000 for PHP-FPM
 EXPOSE 9000
-
 
 # CMD [""]
