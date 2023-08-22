@@ -8,11 +8,9 @@ volumes:
   inception_volume:
     driver: local
     driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '$HOME/data'
-
-
+      type: none
+      o: bind
+      device: $HOME/data/db
 
 services:
   nginx:
