@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the MariaDB server configuration file
-COPY conf/my.cnf /etc/mysql/my.cnf
+COPY conf/my.conf /etc/mysql/my.cnf
 
 # Set up the entry point
 ENTRYPOINT ["mysqld_safe --init-file=/etc/my.sql;"]
