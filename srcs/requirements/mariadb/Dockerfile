@@ -5,7 +5,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY conf/my.conf /etc/mysql/my.cnf
 COPY conf/query.sql /tmp/query.sql
 COPY conf/script.sh /tmp/script.sh
 RUN chmod 777 /tmp/script.sh
