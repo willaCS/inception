@@ -1,7 +1,7 @@
 FROM debian:latest
 
 RUN apt-get update && \
-    apt-get install -y mariadb-server && \
+    apt-get install -y mariadb-server wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
