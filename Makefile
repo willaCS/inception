@@ -5,7 +5,7 @@ VOLUME_PATH=   $(addprefix $(HOME)/data/, $(VOLUME))
 
 all:
 	for i in $(VOLUME_PATH); do mkdir -p $$i; done
-	docker compose -f srcs/docker-compose.yml up
+	docker compose -f srcs/docker-compose.yml build
 
 clean:
 	-docker compose -f srcs/docker-compose.yml down
@@ -15,5 +15,8 @@ clean:
 
 stop:
 	docker compose -f srcs/docker-compose.yml down
+
+exe:
+	docker compose -f srcs/docker-compose.yml up
 
 re: clean all
