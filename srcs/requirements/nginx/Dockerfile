@@ -7,7 +7,6 @@ RUN apt-get update && \
 
 RUN rm /etc/nginx/sites-enabled/default
 COPY conf/nginx.conf /etc/nginx/sites-enabled/default
-COPY index.html /var/www/html/index.html
 
 RUN mkdir -p /etc/nginx/ssl && openssl req -x509 \
     -sha256 -days 356 \
