@@ -34,13 +34,13 @@ WORKDIR /app
 
 RUN 		groupadd wordpress													\
 	&&		useradd -g wordpress wordpress										\
-	&&		mkdir -p /usr/logs/php-fpm/											\
-	&&		chown -R wordpress:wordpress /usr/logs/php-fpm/						\
-	&&		chmod -R 755 /usr/logs/php-fpm										\
 	&&		ln -s $(which php-fpm7.4) /bin/php-fpm								\
+	&&		mkdir -p /usr/logs/php-fpm/											\
 	&&		mkdir -p /run/php/													\
+	&&		chown -R wordpress:wordpress /usr/logs/php-fpm/						\
 	&&		chown -R wordpress:wordpress /run/php/								\
 	&&		chown -R wordpress:wordpress /app									\
+	&&		chmod -R 755 /usr/logs/php-fpm										\
 	&&		chmod -R 755 /app
 
 COPY tools/start.sh /tmp/start.sh
