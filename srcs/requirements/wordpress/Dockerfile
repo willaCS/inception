@@ -32,7 +32,6 @@ COPY tools/php-fpm.conf /etc/php/7.4/fpm/
 RUN mkdir /app
 WORKDIR /app
 
-# Create group for autorizations
 RUN 		groupadd wordpress													\
 	&&		useradd -g wordpress wordpress										\
 	&&		mkdir -p /usr/logs/php-fpm/											\
