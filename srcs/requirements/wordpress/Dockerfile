@@ -2,7 +2,7 @@
 FROM debian:latest
 
 # Install PHP-FPM and other dependencies
-RUN apt-get update && apt-get install -y wget less \
+RUN apt-get update && apt-get install -y wget iputils-ping less \
     php-fpm \
     php-mysql \
     php-gd \
