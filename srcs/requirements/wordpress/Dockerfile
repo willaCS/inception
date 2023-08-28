@@ -36,7 +36,6 @@ WORKDIR /app
 
 RUN 		groupadd wordpress													\
 	&&		useradd -g wordpress wordpress										\
-	&&		ln -s $(which php-fpm7.4) /bin/php-fpm								\
 	&&		mkdir -p /usr/logs/php-fpm/											\
 	&&		mkdir -p /run/php/													\
 	&&		chown -R wordpress:wordpress /usr/logs/php-fpm/						\
