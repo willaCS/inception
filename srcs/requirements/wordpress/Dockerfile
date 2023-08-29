@@ -18,9 +18,9 @@ RUN apt-get update && apt-get install -y wget iputils-ping less \
     && rm -rf /var/lib/apt/lists/*
 
 # Download Wordpress cli
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-	&& chmod +x wp-cli.phar \
-	&& mv wp-cli.phar /bin/wp
+RUN			wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+	&&		chmod +x wp-cli.phar \
+	&&		mv wp-cli.phar /bin/wp
 
 # Download Wordpress
 RUN			wget https://wordpress.org/wordpress-6.3.tar.gz						\
