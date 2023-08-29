@@ -9,7 +9,7 @@ exit_if_fail() {
 
 check_db () {
 	wp db check
-	# exit_if_fail "db connection failed!"
+	exit_if_fail "db connection failed!"
 }
 
 run_install () {
