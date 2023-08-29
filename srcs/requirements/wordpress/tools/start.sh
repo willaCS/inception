@@ -39,12 +39,10 @@ run_install () {
 	echo "[INFO] End Install"
 }
 
-wp config path
+wp config path 2>/dev/null
 if [ $? -eq 0 ]; then
-	echo "1";
 	check_db;
 else
-	echo "2";
 	run_install;
 fi
 
