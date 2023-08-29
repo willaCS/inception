@@ -9,7 +9,7 @@ exit_if_fail() {
 
 check_db () {
 	wp db check
-	exit_if_fail "db connection failed!"
+	# exit_if_fail "db connection failed!"
 }
 
 run_install () {
@@ -32,16 +32,19 @@ run_install () {
 	exit_if_fail "WP install failed!";
 
 	echo "[INFO] Create $WP_USER_NAME user"
-	wp user create $WP_USER_NAME $WP_USER_EMAIL \
-		--user_pass=$WP_USER_PASSWD \
-		--display_name=$WP_USER_DISPLAY_NAME 
+	wp user create "$WP_USER_NAME" "$WP_USER_EMAIL" \
+		--user_pass="$WP_USER_PASSWD" \
+		--display_name="$WP_USER_DISPLAY_NAME"
 	exit_if_fail "Failed to create $WP_USER_NAME!";
+	echo "[INFO] End Install"
 }
 
 wp config path
 if [ $? -eq 0 ]; then
+	echo "1";
 	check_db;
 else
+	echo "2";
 	run_install;
 fi
 

@@ -25,9 +25,8 @@ RUN mkdir /app
 WORKDIR /app
 
 RUN 		groupadd wordpress \
-	&&		useradd -g wordpress wordpress
-
-RUN			chown -R wordpress:wordpress /app \
+	&&		useradd -g wordpress wordpress \
+	&&		chown -R wordpress:wordpress /app \
 	&&		chmod -R 755 /app
 
 # Download Wordpress cli
@@ -42,16 +41,14 @@ RUN			wget https://wordpress.org/wordpress-6.2.2.tar.gz \
 	&&		rm -rf wordpress wordpress-6.2.2.tar.gz
 
 COPY tools/start.sh /start.sh
-RUN chmod +x /start.sh
-
 COPY tools/php-fpm.conf /etc/php/7.4/fpm/
 
-RUN			ln -s $(which php-fpm7.4) /bin/php-fpm \
-	&&		mkdir -p /run/php/ \
-	&&		chown -R wordpress:wordpress /run/php/ \
+RUN			mkdir -p /run/php/ \
   	&&		mkdir -p /usr/logs/php-fpm \
+	&&		chown -R wordpress:wordpress /run/php/ \
 	&&		chown -R wordpress:wordpress /usr/logs/php-fpm \
-	&&		chmod -R 755 /usr/logs/php-fpm
+	&&		chmod -R 755 /usr/logs/php-fpm \
+	&&		chmod +x /start.sh
 
 USER wordpress:wordpress
 CMD ["/start.sh"]
