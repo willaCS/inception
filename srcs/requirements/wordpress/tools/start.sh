@@ -8,8 +8,9 @@ exit_if_fail() {
 }
 
 check_db () {
-	wp db check
+	wp db check > /dev/null 2>&1
 	exit_if_fail "db connection failed!"
+	echo "[INFO] db connection success"
 }
 
 run_install () {
