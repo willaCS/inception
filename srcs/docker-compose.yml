@@ -20,12 +20,12 @@ services:
     build:
       context: ./requirements/nginx
     ports:
-      - "8080:80"
+      - "4000:4000"
     networks:
       - inception_network
     volumes:
       - inception_volume:/app
-    restart: unless-stopped
+    restart: always
 
 
   wordpress:
@@ -39,7 +39,7 @@ services:
       - inception_network
     volumes:
       - inception_volume:/app
-    restart: unless-stopped
+    restart: always
   
   mariadb:
     container_name: "mariadb"
@@ -48,4 +48,4 @@ services:
     env_file: .env
     networks:
       - inception_network
-    restart: unless-stopped
+    restart: always
