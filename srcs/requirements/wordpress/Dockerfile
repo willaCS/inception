@@ -43,7 +43,7 @@ RUN			wget https://wordpress.org/wordpress-6.2.2.tar.gz \
 	&&		rm -rf wordpress wordpress-6.2.2.tar.gz
 
 COPY tools/start.sh /start.sh
-COPY tools/php-fpm.conf /etc/php/7.4/fpm/
+COPY tools/php-fpm.conf /etc/php/7.3/fpm/
 
 RUN			mkdir -p /run/php/ \
   	&&		mkdir -p /usr/logs/php-fpm \
