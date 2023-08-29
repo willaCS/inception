@@ -40,7 +40,7 @@ run_install () {
 	echo "[INFO] End Install"
 }
 
-wp config path 2>/dev/null
+wp config path > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	check_db;
 else
