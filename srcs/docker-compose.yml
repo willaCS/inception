@@ -1,18 +1,9 @@
 version: '3'
 
-networks:
-  inception_network:
-    name: inception_network
-
-volumes:
-  inception_volume:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: $HOME/data/wp
+# ============================================================================ #
 
 services:
+
   nginx:
     container_name: "nginx"
     depends_on:
@@ -24,9 +15,8 @@ services:
     networks:
       - inception_network
     volumes:
-      - inception_volume:/app
+      - volume_wordpress:/app
     restart: always
-
 
   wordpress:
     container_name: "wordpress"
@@ -38,7 +28,7 @@ services:
     networks:
       - inception_network
     volumes:
-      - inception_volume:/app
+      - volume_wordpress:/app
     restart: always
   
   mariadb:
@@ -48,4 +38,30 @@ services:
     env_file: .env
     networks:
       - inception_network
+    volumes:
+      - volume_mariadb:/var/lib/mysql
     restart: always
+
+# ============================================================================ #
+
+networks:
+  inception_network:
+    name: inception_network
+
+# ============================================================================ #
+
+volumes:
+
+  volume_wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/data/wp
+  
+  volume_mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/data/db

@@ -1,6 +1,6 @@
 REQUIREMENT= wordpress nginx mariadb
 REQU_PATH=   $(addprefix srcs/requirements/, $(REQUIREMENT))
-VOLUME= wp
+VOLUME= wp db
 VOLUME_PATH=   $(addprefix $(HOME)/data/, $(VOLUME))
 
 all:
