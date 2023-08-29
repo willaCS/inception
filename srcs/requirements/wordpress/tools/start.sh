@@ -47,4 +47,4 @@ else
 	run_install;
 fi
 
-php-fpm7.4 -F
+php-fpm7.3 -F
