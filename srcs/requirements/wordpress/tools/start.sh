@@ -9,7 +9,7 @@ exit_if_fail() {
 
 check_db () {
 	wp db check
-	exit_if_fail "db connection faild!"
+	exit_if_fail "db connection failed!"
 }
 
 run_install () {
@@ -35,7 +35,7 @@ run_install () {
 	wp user create $WP_USER_NAME $WP_USER_EMAIL \
 		--user_pass=$WP_USER_PASSWD \
 		--display_name=$WP_USER_DISPLAY_NAME 
-	exit_if_fail "Faild to create $WP_USER_NAME!";
+	exit_if_fail "Failed to create $WP_USER_NAME!";
 }
 
 wp config path

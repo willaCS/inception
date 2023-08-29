@@ -43,7 +43,7 @@ RUN 		groupadd wordpress													\
 	&&		chown -R wordpress:wordpress /app									\
 	&&		chmod -R 755 /usr/logs/php-fpm										\
 	&&		chmod -R 755 /usr/logs/php-fpm										\
-	&&		chmod 707 /tmp/start.sh
+	&&		chmod 707 /tmp/start.sh												
 
 USER wordpress:wordpress
 CMD ["/tmp/start.sh"]
