@@ -21,9 +21,11 @@ RUN apt-get update && apt-get install -y wget \
 	sendmail \
 	&& rm -rf /var/lib/apt/lists/*
 
+# Create Workdir linked to volume
 RUN mkdir /app
 WORKDIR /app
 
+# Create autorization
 RUN 		groupadd wordpress \
 	&&		useradd -g wordpress wordpress \
 	&&		chown -R wordpress:wordpress /app \
